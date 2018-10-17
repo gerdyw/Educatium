@@ -1,0 +1,74 @@
+{
+    "solutions": [
+        {
+            "id": 0,
+            "name": "Jeff",
+            "solution_html": "My thoughts are that this is the best thing that is ever so far as to have gone as to look more as to do more things",
+            "last_modified": "22 March 2018",
+            "stickied": "I really need help expanding on my answer but I don't know where to go from here.",
+            "seen": true
+        },
+        {
+            "id": 1,
+            "name": "Sophia",
+            "solution_html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sodales viverra. Curabitur suscipit feugiat tempor. Aenean neque mi, maximus et condimentum a, condimentum a velit. Curabitur vehicula posuere bibendum. Etiam est odio, feugiat nec arcu id, venenatis pellentesque purus. Nullam sollicitudin porta neque, at aliquam sem pellentesque facilisis. Fusce scelerisque, dolor ultrices euismod hendrerit, lectus quam lobortis sem, accumsan cursus justo sem non nibh. Nullam ut enim non tellus luctus vulputate non suscipit massa. Proin tempus rutrum nunc, iaculis elementum metus euismod a. Suspendisse non condimentum dolor. Sed in nunc nec sem dapibus venenatis ac sed metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam nec auctor ex, nec pharetra est. Aenean vitae leo pretium, cursus ligula a, ultricies ex. Suspendisse ligula augue, pharetra quis purus sit amet, hendrerit semper arcu. Integer semper consequat nibh, nec dictum risus dignissim sed. Ut est nulla, eleifend sed eros sed, finibus vehicula nisl. Aenean varius urna nec pretium sollicitudin. Quisque dictum sodales nulla, placerat sodales erat vulputate id. Aenean maximus, metus quis congue tempus, dui metus pulvinar neque, nec aliquam velit nisl sit amet magna. Nunc sed nibh nulla.",
+            "last_modified": "20 March 2018 09:08:15",
+            "stickied": "Hey team do you reckon its good to start of my answer with \"Lorem impsum dolor sit amet\"?",
+            "seen": false
+        },
+        {
+            "id": 2,
+            "name": "Julia",
+            "solution_html": "Nullam malesuada dolor vitae purus fermentum, ac malesuada mauris euismod. Mauris pretium efficitur lacus. Ut fringilla turpis ut ipsum interdum, vitae condimentum nunc efficitur. Etiam vehicula, lorem vestibulum ultrices eleifend, nisl lacus dictum erat, at sollicitudin quam lorem vel sem. Maecenas ac iaculis est.<br><img class='h-25' src=\"https://daniverg.files.wordpress.com/2010/05/the-milkmaid.jpg\" alt=\"obtained from https://daniverg.files.wordpress.com/2010/05/the-milkmaid.jpg\" style='max-height: 40vh;'><br>Duis scelerisque pulvinar turpis ut bibendum. Donec in est quam. Fusce finibus nisi vitae enim pulvinar, eu mollis erat egestas. Pellentesque iaculis nibh lacus, quis varius nunc malesuada at. Donec pellentesque eros sed iaculis congue. Curabitur aliquet egestas eros vel elementum.",
+            "last_modified": "22 March 2018 12:03:15",
+            "stickied": "I really don't know if using filler text is a good way to get high marks in this paper.",
+            "seen": true
+        },
+        {
+            "id": 3,
+            "name": "Attila",
+            "solution_html": "I don't even know where to begin, any ideas?",
+            "last_modified": "20 March 2018 13:20:33",
+            "stickied": "",
+            "seen": false
+        }
+
+    ],
+    "comments": [
+        {
+            "cid": 0,
+            "replyid": null,
+            "sid": 0,
+            "name": "Sophia",
+            "date": "20 March 2018 14:15:22",
+            "text": "Nice solution, have you noticed the strange shape of the table?",
+            "current": true
+        },
+        {
+            "cid": 1,
+            "replyid": 0,
+            "sid": 0,
+            "name": "Julia",
+            "date": "23 March 2018 14:12:22",
+            "text": "Is the shape of the table really that important?",
+            "current": false
+        },
+        {
+            "cid": 2,
+            "replyid": null,
+            "sid": 2,
+            "name": "Attila",
+            "date": "21 March 2018 12:11:12",
+            "text": "What does it all mean?",
+            "current": true
+        },
+        {
+            "cid": 3,
+            "replyid": null,
+            "sid": 3,
+            "name": "Jeff",
+            "date": "22 March 2018 12:11:45",
+            "text": "You should probably write that in your sticky, not your solution. I would begin by reading the wikipedia article <a href=\"https://en.wikipedia.org/wiki/The_Milkmaid_(Vermeer)\">The Milkmaid</a>."
+        }
+    ]
+}

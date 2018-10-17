@@ -1,0 +1,172 @@
+html body {
+    overflow: hidden;
+    margin: 0;
+    font-family: sans-serif;
+}
+body {
+    word-wrap: break-word;
+}
+
+@media (min-width: 992px) {
+    body {
+    }
+}
+
+nav {
+    height: 6vh;
+}
+
+#feedback-panel {
+    overflow-y: scroll;
+    margin-top: 10px;
+    padding-right: 30px;
+}
+
+#main-body {
+    background-color: white;
+    overflow-y: scroll;
+    padding-right: 0;
+
+}
+
+#content {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 94vh;
+}
+
+#content .row {
+    height: 100%;
+}
+
+#question-panel {
+    padding: 10px;
+}
+
+#question-header {
+    padding: 10px;
+}
+
+#question-content {
+    margin-top: 20px;
+    padding-left: 0px;
+}
+
+#question-body {
+    margin-left: 0;
+    padding-left: 0px;
+}
+
+#question {
+    padding-left: 10px;
+}
+
+#question-collapse-button {
+    text-decoration: underline;
+}
+
+.art-table-info {
+    font-weight: bold;
+}
+
+#art-panel {
+    width: 30%;
+    max-width: 400px;
+    margin-left: 10px;
+}
+
+
+#art-panel .panel-header {
+    text-align: center;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+#solution-panel {
+    padding-right: 20px;
+}
+
+#solution-last-modified {
+    text-align: right;
+    background-color: aquamarine
+}
+
+#peer-feedback {
+    overflow-y: auto;
+}
+
+#feedback-form {
+}
+.active {
+    font-weight: bold;
+    color: skyblue;
+}
+
+.hidden {
+    visibility: hidden;
+}
+#solution-date {
+    font-style: italic;
+}
+
+#solution-dropdown {
+}
+
+#main-nav {
+    background-color: #fc934d;
+    color: white;
+}
+
+#stickied {
+    background-color: #FEFDAF;
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #4678d6;
+    font-weight: bold;
+}
+
+.badge-info {
+    background-color: #fc934d;
+    border-color: #fc934d;
+}
+
+.btn-primary {
+    background-color: #4678d6;
+}
+
+#milkmaid {
+    cursor: pointer;
+}
+
+#edit-solution {
+    text-decoration: underline;
+}
+.dropdown-item.active {
+    background-color: #4678d6;
+}
+
+.btn-primary:hover {
+    color: #fc934d;
+    background-color: #4678d6;
+    border-color: #4678d6;
+}
+
+.btn-secondary:hover {
+    background-color: #4678d6;
+    border-color: #4678d6;
+    color: #ffffff;    
+}
+
+.btn-primary:active {
+    background-color: #365da6;
+    border-color: #365da6;
+}
+.btn-secondary:active {
+    background-color: #365da6 !important;
+    border-color: #365da6; 
+}
