@@ -1,54 +1,48 @@
 $(document).ready(function(){
     var user;
     var comments_builder;
-    var json;
     var current_solution;
 
-    (function() {
-        $.getJSON("dummy-data.json", (data) => {
-            json = data;
-            user = json.solutions[0];
-            build_navs(json.solutions);
-            build_chat_dropdown(json.solutions);
-            let comments = json.comments;
-            comments_builder = ((comments) => {
-                return function(solution) {
-                    let sid = solution.id;
-                    let top_levels = comments.filter(c => c.sid == sid && c.replyid == null);
-                    let replies = comments.filter(c => c.sid == sid && c.replyid != null);
-                    top_levels.forEach(t => {
-                        t.replies = replies.filter(r => r.replyid == t.cid);
-                        t.replies.sort((a, b) => (new Date(a.date)) - (new Date(b.date)));
-                    });
-                    return top_levels.map(t => build_comment(t));
-                }
-            })(comments);
-            activate_solution(user);
-            let cids = json.comments.map(c => c.cid);
-            let _cid = cids.reduce((a, c) => c > a ? c : a) + 1;
-            setTimeout(() => {
-                let _sid = 1;
-                let _replyid = null;
-                let cids = json.comments.map(c => c.cid);
-                let _cid = cids.reduce((a, c) => c > a ? c : a) + 1;
-                let _date = format_date(new Date());
-                let _name = "Attila";
-                let _text = "But really what's going on in the painting?";
-                let _current = true;
-                let comment = {
-                    cid: _cid,
-                    replyid: _replyid,
-                    sid: _sid,
-                    name: _name,
-                    date: _date,
-                    text: _text,
-                    current: _current
-                }
-                json.comments.push(comment);
-            }, 5000);
-            setInterval(() => check_notifications(), 500);
-        });
-    })();
+    user = contentData.solutions[0];
+    build_navs(contentData.solutions);
+    build_chat_dropdown(contentData.solutions);
+    let comments = contentData.comments;
+    comments_builder = ((comments) => {
+        return function(solution) {
+            let sid = solution.id;
+            let top_levels = comments.filter(c => c.sid == sid && c.replyid == null);
+            let replies = comments.filter(c => c.sid == sid && c.replyid != null);
+            top_levels.forEach(t => {
+                t.replies = replies.filter(r => r.replyid == t.cid);
+                t.replies.sort((a, b) => (new Date(a.date)) - (new Date(b.date)));
+            });
+            return top_levels.map(t => build_comment(t));
+        }
+    })(comments);
+    activate_solution(user);
+    let cids = contentData.comments.map(c => c.cid);
+    let _cid = cids.reduce((a, c) => c > a ? c : a) + 1;
+    setTimeout(() => {
+        let _sid = 1;
+        let _replyid = null;
+        let cids = contentData.comments.map(c => c.cid);
+        let _cid = cids.reduce((a, c) => c > a ? c : a) + 1;
+        let _date = format_date(new Date());
+        let _name = "Attila";
+        let _text = "But really what's going on in the painting?";
+        let _current = true;
+        let comment = {
+            cid: _cid,
+            replyid: _replyid,
+            sid: _sid,
+            name: _name,
+            date: _date,
+            text: _text,
+            current: _current
+        }
+        contentData.comments.push(comment);
+    }, 5000);
+    setInterval(() => check_notifications(), 500);
     
 
     
@@ -57,9 +51,9 @@ $(document).ready(function(){
         solution.seen = true;
         $(".sol-nav").removeClass("active");
         $("#nav-pill-" + solution.id + " a").addClass("active");
-        build_solution_dropdown(json.solutions);
+        build_solution_dropdown(contentData.solutions);
         $("#solution-dropdown-button").text(solution.name);
-        $("#solution-dropdown-button").append((json.solutions.map(s => s.seen).indexOf(false) > -1)
+        $("#solution-dropdown-button").append((contentData.solutions.map(s => s.seen).indexOf(false) > -1)
                                                             ? "&nbsp; <span id='new-notification' class='badge badge-pill badge-info'>new</span>"
                                                             : "");
         $("#post-date").text("Last modified " + solution.last_modified);
@@ -77,7 +71,7 @@ $(document).ready(function(){
         $("#peer-feedback").html("");
         comments_builder(solution).forEach(c => $("#peer-feedback").append(c));
         $("#dropdown-" + solution.id).addClass("active");
-        json.comments.forEach(c => {
+        contentData.comments.forEach(c => {
             if (c.sid == solution.id) c.current = false;
         });
         if (solution.name == user.name) $("#edit-solution").removeClass("hidden"); 
@@ -138,7 +132,7 @@ $(document).ready(function(){
         
         var replies;
         
-        json.comments.filter(c => c.replyid == jcomment.cid).forEach(r => comment_body.append(build_comment(r)));
+        contentData.comments.filter(c => c.replyid == jcomment.cid).forEach(r => comment_body.append(build_comment(r)));
         
         comment.append(comment_body);
         
@@ -210,11 +204,11 @@ $(document).ready(function(){
     }
     
     function check_notifications() {
-        let notifications = json.comments.filter(c => c.current && c.name != user.name);
+        let notifications = contentData.comments.filter(c => c.current && c.name != user.name);
         notifications.sort((a, b) => new Date(b.date) - new Date(a.date));
         $("#notification-dropdown").html("<div class='dropdown-header'>Recent notifications</div>");
         notifications.forEach(n => {
-            let solution = json.solutions.filter(s => s.id == n.sid)[0];
+            let solution = contentData.solutions.filter(s => s.id == n.sid)[0];
             $("#notification-dropdown").append($("<a></a>", {
                 class: "dropdown-item",
                 href: "#",
@@ -233,11 +227,11 @@ $(document).ready(function(){
         let _text = $("#comment").val();
         let _date = format_date(new Date());
         let _name = user.name;
-        let _cid = json.comments.map(c => c.cid).reduce((a, c) => c > a ? c : a) + 1;
+        let _cid = contentData.comments.map(c => c.cid).reduce((a, c) => c > a ? c : a) + 1;
         let _sid = current_solution.id;
         let _replyid = $(".l-active").data("cid");
         let _current = false;
-        json.comments.push({
+        contentData.comments.push({
             cid: _cid,
             replyid: _replyid,
             sid: _sid,
@@ -255,7 +249,7 @@ $(document).ready(function(){
             $("#solution").hide();
             $("#solution-date").hide();
             $("#modify-solution").show();
-            $("#new-solution").val(json.solutions[0].solution_html);
+            $("#new-solution").val(contentData.solutions[0].solution_html);
         } else {
             $("#solution").show();
             $("#solution-date").show();
@@ -263,21 +257,21 @@ $(document).ready(function(){
         }
     });
     $("#submit-modification").on("click", () => {
-        json.solutions[0].solution_html = $("#new-solution").val();
-        activate_solution(json.solutions[0]);
-        json.solutions[0].last_modified = format_date(new Date());
+        contentData.solutions[0].solution_html = $("#new-solution").val();
+        activate_solution(contentData.solutions[0]);
+        contentData.solutions[0].last_modified = format_date(new Date());
         $("#edit-solution").click();
-        activate_solution(json.solutions[0]);
+        activate_solution(contentData.solutions[0]);
         $("#sticky-modal").modal();
     });
     $("#modify-cancel").click(() => $("#edit-solution").click());
     $("#new-sticky").click(() => {
-        json.solutions[0].stickied = $("#sticky-text").val();
+        contentData.solutions[0].stickied = $("#sticky-text").val();
         $("#sticky-modal").modal("toggle");
         activate_solution(user);
     });
     $("#no-sticky").click(() => {
-        json.solutions[0].stickied = "";
+        contentData.solutions[0].stickied = "";
         $("#sticky-modal").modal("toggle");
         activate_solution(user);
     });
